@@ -1,0 +1,116 @@
+﻿
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+  <section class="jumbotron text-center">
+    <div class="container">
+        <h1 class="jumbotron-heading">Прокат катомаранов</h1>
+        <p class="lead text-muted">Добро пожаловать на сайт по прокату катамаранов</p>
+        <p>
+        </p>
+      </div>
+  </section>
+
+  
+
+
+
+    @if (User.Identity.IsAuthenticated)
+    {
+            <div class="logout-form">
+                <form method="post" asp-action="Logout" asp-controller="Account">
+                @Html.AntiForgeryToken()
+                    <button type="submit" class="nav-link btn btn-link">Выйти из профиля</button>
+                </form>
+            </div>
+    }
+
+    <style>
+        .logout-form {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+    </style>
+
+<div class="album py-5 bg-light">
+<div class="container">
+        @if (User.IsInRole("User"))
+        {
+            
+            <div class="card col-md-12">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Приветствую тебя дорогой клиент</h5>
+                    <p class="card-text">
+                        На этом сайте вы сможете выбрать подходящую для вас модель катамарана
+                    </div>
+               <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="https://relax-yachting.com/images/helps/katamarani_dla_arendi_big.jpg" class="card-img-top" alt="Яхта">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">Яхта</h5>
+                            </div> 
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                        <img src="https://itboat.com/uploads/7c00/7a053fa7f2cb.jpg" class="card-img-top" alt="Парусник">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Парусник</h5>
+                        </div>         
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcs2O9OHFV7LKL1Z_qKzSt6YaKQTmrMtTPeRMhZ5MYZgPSM79_njHw6Ysor9HUoexn_u0&usqp=CAU" class="card-img-top" alt="Катамаран">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">Катамаран</h5>
+                            </div>
+
+                        </div>
+                        </div>
+                    </div>
+            </div>
+        }
+        @if (User.IsInRole("Сontroller"))
+        {
+                
+                <div class="card col-md-12">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Приветствую тебя контроллер</h5>
+                        <p class="card-text">
+                            На этом сайте вы сможете выбрать подходящую для вас модель катамарана
+                        </div>
+                   <div class="row row-cols-1 row-cols-md-3 g-4">
+                        <div class="col">
+                            <div class="card h-100">
+                                <img src="https://relax-yachting.com/images/helps/katamarani_dla_arendi_big.jpg" class="card-img-top" alt="Яхта">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">Яхта</h5>
+                                </div> 
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100">
+                            <img src="https://itboat.com/uploads/7c00/7a053fa7f2cb.jpg" class="card-img-top" alt="Парусник">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">Парусник</h5>
+                            </div>         
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcs2O9OHFV7LKL1Z_qKzSt6YaKQTmrMtTPeRMhZ5MYZgPSM79_njHw6Ysor9HUoexn_u0&usqp=CAU" class="card-img-top" alt="Катамаран">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">Катамаран</h5>
+                                </div>
+
+                            </div>
+                            </div>
+                        </div>
+                </div>
+        }
+    </div>
+</div>

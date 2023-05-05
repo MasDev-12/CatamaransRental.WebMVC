@@ -1,0 +1,29 @@
+﻿@model CatamaransRental.Domain.ViewModel.RentalViewModel
+
+<h1>Создание аренды</h1>
+
+<form asp-action="CreateRental" method="post">
+    <div class="form-group">
+        <label asp-for="StartTime" class="control-label"></label>
+        <input asp-for="StartTime" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="EndTime" class="control-label"></label>
+        <input asp-for="EndTime" class="form-control" />
+    </div>
+    <input type="hidden" name="userName" value="@Model.UserViewModel.Name" />
+    <input type="hidden" name="model" value="@Model.CatamaranViewModel.Model" />
+    <button type="submit">Забронировать</button>
+</form>
+@if (ViewBag.ShowSuccessMessage == true)
+{
+        <div class="alert alert-success" role="alert">
+            Билет для аренды успешно создан!Теперь необходимо его зарегестрировать
+        </div>
+}
+@if (ViewBag.ShowSuccessMessage == false)
+{
+        <div class="alert alert-success" role="alert">
+            Отказано в аренде, т.к. катамаран занят
+        </div>
+}

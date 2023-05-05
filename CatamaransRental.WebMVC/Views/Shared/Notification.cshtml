@@ -1,0 +1,8 @@
+﻿@{
+    Layout = null;
+}
+
+<div class="alert alert-@ViewBag.AlertType" role="alert">
+    @ViewBag.AlertMessage
+</div>
+<a type="btn btn-success" asp-controller="Ticket" asp-action="GetAll"class="btn btn-sm btn-outline-secondary">Вернуться на главную</a>
